@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyber Security Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: radial-gradient(circle at 20% 20%, #0f172a, #020617);
+      color: #e6edf3;
+      overflow-x: hidden;
+    }
+
+    /* Glow background */
+    body::before {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+      background: #00ffcc20;
+      filter: blur(120px);
+      top: -100px;
+      left: -100px;
+      z-index: -2;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    header {
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      color: #00ffcc;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #ccc;
+      font-size: 14px;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00ffcc;
+      left: 0;
+      bottom: -4px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    section {
+      padding: 80px 50px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #00ffcc;
+    }
+
+    .hero {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      color: #aaa;
+    }
+
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #00ffcc;
+      box-shadow: 0 0 20px #00ffcc55;
+      transition: transform 0.4s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      margin-right: 10px;
+      padding: 10px 20px;
+      border: 1px solid #00d9ff;
+      color: #00d9ff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 100%;
+      background: #00d9ff;
+      left: 0;
+      top: 0;
+      z-index: -1;
+      transition: 0.3s;
+    }
+
+    .btn:hover::after {
+      width: 100%;
+    }
+
+    .btn:hover {
+      color: #000;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, #00ffcc33, transparent);
+      opacity: 0;
+      transition: 0.4s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 0 20px #00ffcc33;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .timeline {
+      border-left: 2px solid #00ffcc;
+      padding-left: 20px;
+    }
+
+    .timeline-item {
+      margin-bottom: 20px;
+    }
+
+    .timeline-item h4 {
+      color: #00ffcc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <h1>CyberSec</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#skills">Skills</a>
+    <a href="#tools">Tools</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h2>Hi, I'm Vishnu Prasad K</h2>
+    <p>Cyber Security Analyst | Threat Hunter | SOC Specialist</p>
+    <p>I protect systems, investigate threats, and build resilient security solutions.</p>
+
+    <a href="vishnuPrasadk_resume.pdf" target="_blank" class="btn">View Resume</a>
+    <a href="vishnuPrasadk_resume.pdf" download class="btn">Download Resume</a>
+  </div>
+
+  <img src="your-photo.jpg" alt="Profile" class="profile-img">
+</section>
+
+<section id="about" class="reveal">
+  <h2>About Me</h2>
+  <div class="card">
+    Cybersecurity professional with experience in SOC operations, threat detection, and incident response.
+  </div>
+</section>
+
+<section id="experience" class="reveal">
+  <h2>Experience</h2>
+  <div class="card timeline">
+    <div class="timeline-item">
+      <h4>Security Analyst-L2 – CIBER DIGITA CONSULTANTS</h4>
+      <p>2024 – Present</p>
+      <p>● Perform monitoring and detection of security  events in client environments, triaging and 
+        escalating true positives to the concerned team and assisting in the resolution and 
+        remediation of the same<br>
+        ● Engaged in use case creations on OT and IT Networks<br>
+        ● Creating dashboards and use cases, fine tuning alerts for effective security monitoring<br>
+        ● Creating SOAR Playbooks for automation<br>
+        ● Carrying out system health and health check-up of the major devices and indices<br>
+        ● Took an active role in integration of devices based on Agents,Syslogs and API’s.<br>
+        ● Managing index creation and deletion <br>
+        ● Creating customized reports for the client. <br>
+        ● Lead in documenting playbooks,workflows and SOP’s <br>
+        ● Involved in creating rules in Firewalls and Switches <br>
+        ● Coordinate in the project upgradations <br>
+        ● Engaged in client and management meetings <br>
+        ● Involved in managing servers</p>
+    </div>
+    <div class="timeline-item">
+      <h4>Security Analyst-L1 – CIBER DIGITA CONSULTANTS</h4>
+      <p>2023 – 2024</p>
+      <p>● Monitored the logs 24/7 <br>
+        ● Performed alert triaging and initial analysis <br>
+        ● Engaged in Incident Creation and documentation <br>
+        ● Performed the analysis of the logs, and according to the severity escalated to L2 and L3.<br> 
+        ● Performed Basic threat intelligence checks <br>
+        ● Engaged in report creation <br>
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="reveal">
+  <h2>Certifications</h2>
+  <div class="grid">
+    <div class="card">Certified Ethical Hacker (CEH) -- EC-Council</div>
+    <div class="card">Introduction to cyber security - CISCO</div>
+    <div class="card">Certified Information Security Consultant - CISC </div>
+    <div class="card">Computer Hacking Forensic Investigator (CHFI) - EC-Council</div>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">SIEM</div>
+    <div class="card">Threat Hunting</div>
+    <div class="card">Incident Response</div>
+  </div>
+</section>
+
+<section id="tools" class="reveal">
+  <h2>Tools</h2>
+  <div class="grid">
+    <div class="card">CDC-ON</div>
+    <div class="card">AlienVault</div>
+    <div class="card">Splunk</div>
+    <div class="card">SentonelOne</div>
+    <div class="card">TrendMicro</div>
+    <div class="card">Nmap</div>
+    <div class="card">Burp Suit</div>
+    <div class="card">Wireshark</div>
+    <div class="card">Firewall</div>
+    <div class="card">swicth</div>
+    <div class="card">Recorded Future</div>
+    <div class="card">Big Fix</div>
+  </div>
+</section>
+
+<section id="projects" class="reveal">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">SIEM Home Lab Set-up</div>
+    <div class="card">Phishing</div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <h2>Contact</h2>
+  <div class="grid">
+    <div class="card">
+      Email<br>
+      <a href="mailto:your@email.com" class="btn">Send Email</a>
+    </div>
+
+    <div class="card">
+      LinkedIn<br>
+      <a href="#" class="btn">Profile</a>
+    </div>
+
+    <div class="card">
+      GitHub<br>
+      <a href="#" class="btn">Projects</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Vishnu Prasad K
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script>
+  const canvas = document.getElementById('bg');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ canvas });
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.position.z = 5;
+
+  const geometry = new THREE.BufferGeometry();
+  const vertices = [];
+
+  for (let i = 0; i < 3000; i++) {
+    vertices.push((Math.random()-0.5)*20,(Math.random()-0.5)*20,(Math.random()-0.5)*20);
+  }
+
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+  const material = new THREE.PointsMaterial({ color: 0x00ffcc, size: 0.02 });
+  const particles = new THREE.Points(geometry, material);
+  scene.add(particles);
+
+  function animate() {
+    requestAnimationFrame(animate);
+    particles.rotation.y += 0.0008;
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll(".reveal");
+
+  function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+      if (el.getBoundingClientRect().top < windowHeight - 80) {
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+</script>
+
+</body>
+</html>
