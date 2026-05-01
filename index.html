@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vishnu Prasad K | Cyber Security</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron',sans-serif;
+}
+
+body{
+  background:#020617;
+  color:#e6edf3;
+  overflow-x:hidden;
+}
+
+/* CANVAS */
+canvas{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:0;
+}
+
+header, section, footer{
+  position:relative;
+  z-index:2;
+}
+
+/* HEADER */
+header{
+  padding:20px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1{
+  color:#00ffcc;
+}
+
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:#aaa;
+  font-size:14px;
+  transition:0.3s;
+}
+
+nav a:hover{
+  color:#00ffcc;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 50px;
+}
+
+.hero-text{
+  max-width:600px;
+}
+
+.hero h2{
+  font-size:42px;
+  color:#00ffcc;
+}
+
+.hero p{
+  margin-top:15px;
+  color:#aaa;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  margin-right:10px;
+  padding:10px 20px;
+  border:1px solid #00ffcc;
+  color:#00ffcc;
+  text-decoration:none;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#00ffcc;
+  color:#000;
+}
+
+/* IMAGE */
+.profile-img{
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #00ffcc;
+  box-shadow:0 0 25px #00ffcc55;
+}
+
+/* SECTIONS */
+section{
+  padding:80px 50px;
+  max-width:1100px;
+  margin:auto;
+}
+
+h2{
+  color:#00ffcc;
+  margin-bottom:20px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 20px #00ffcc33;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+/* EXPERIENCE */
+.exp-item{
+  margin-bottom:30px;
+}
+
+.exp-item h3{
+  color:#00ffcc;
+}
+
+.exp-item p{
+  color:#888;
+}
+
+.exp-item ul{
+  margin-top:10px;
+  color:#ccc;
+  line-height:1.6;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <h1>CyberSec</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#skills">Skills</a>
+    <a href="#tools">Tools</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h2>Hi, I'm Vishnu Prasad K</h2>
+    <p>Cyber Security Analyst | Threat Hunter | SOC Specialist</p>
+    <p>I protect systems, investigate threats, and build resilient security solutions.</p>
+
+    <a href="vishnuPrasadk_resume.pdf" target="_blank" class="btn">View Resume</a>
+    <a href="vishnuPrasadk_resume.pdf" download class="btn">Download Resume</a>
+  </div>
+
+  <img src="your-photo.jpg" class="profile-img">
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <div class="card">
+    Cybersecurity professional with hands-on experience in SOC operations,
+    threat detection, and incident response.
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+
+  <div class="card" style="border-left:3px solid #00ffcc;">
+
+    <div class="exp-item">
+      <h3>Security Analyst – L2</h3>
+      <p>CIBER DIGITA CONSULTANTS | 2024 – Present</p>
+
+      <ul>
+        <li>Monitored and analyzed security events, triaging true positives</li>
+        <li>Created dashboards, use cases, and tuned alerts</li>
+        <li>Developed SOAR playbooks for automation</li>
+        <li>Integrated devices via Agents, Syslogs, APIs</li>
+        <li>Managed index creation and system health checks</li>
+        <li>Generated custom client reports</li>
+        <li>Documented SOPs and workflows</li>
+        <li>Configured firewall and switch rules</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <h3>Security Analyst – L1</h3>
+      <p>CIBER DIGITA CONSULTANTS | 2023 – 2024</p>
+
+      <ul>
+        <li>24/7 log monitoring and alert triaging</li>
+        <li>Incident creation and escalation</li>
+        <li>Basic threat intelligence analysis</li>
+        <li>Report generation and documentation</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div class="grid">
+    <div class="card">CEH - EC Council</div>
+    <div class="card">CHFI - EC Council</div>
+    <div class="card">CISCO Cyber Security</div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">SIEM</div>
+    <div class="card">Threat Hunting</div>
+    <div class="card">Incident Response</div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <h2>Tools</h2>
+  <div class="grid">
+    <div class="card">Splunk</div>
+    <div class="card">AlienVault</div>
+    <div class="card">Wireshark</div>
+    <div class="card">Nmap</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">SIEM Home Lab</div>
+    <div class="card">Phishing Analysis</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="grid">
+    <div class="card">Email</div>
+    <div class="card">LinkedIn</div>
+    <div class="card">GitHub</div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Vishnu Prasad K
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script>
+const canvas = document.getElementById('bg');
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha:true });
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.z = 5;
+
+const geometry = new THREE.BufferGeometry();
+const vertices = [];
+
+for(let i=0;i<4000;i++){
+  vertices.push(
+    (Math.random()-0.5)*20,
+    (Math.random()-0.5)*20,
+    (Math.random()-0.5)*20
+  );
+}
+
+geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices,3));
+
+const material = new THREE.PointsMaterial({
+  color:0x00ffcc,
+  size:0.02
+});
+
+const particles = new THREE.Points(geometry, material);
+scene.add(particles);
+
+function animate(){
+  requestAnimationFrame(animate);
+  particles.rotation.y += 0.001;
+  renderer.render(scene, camera);
+}
+
+animate();
+
+window.addEventListener('resize', ()=>{
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+});
+</script>
+
+</body>
+</html>
